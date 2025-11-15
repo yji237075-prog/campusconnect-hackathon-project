@@ -1,0 +1,176 @@
+[
+  {
+    "id": "tech",
+    "name": "Tech Club",
+    "icon": "💻",
+    "color": "from-blue-500 to-cyan-500",
+    "subClubs": [
+      {
+        "name": "Codex",
+        "president": "Rahul Sharma",
+        "coordinator": "Dr. Amit Kumar",
+        "phone": "+91 98765 43210"
+      },
+      {
+        "name": "Cyber Hunter",
+        "president": "Priya Singh",
+        "coordinator": "Prof. Neha Gupta",
+        "phone": "+91 98765 43211"
+      },
+      {
+        "name": "Google Developer Group (GDG)",
+        "president": "Arjun Patel",
+        "coordinator": "Dr. Rajesh Verma",
+        "phone": "+91 98765 43212"
+      },
+      {
+        "name": "MLSA",
+        "president": "Sneha Reddy",
+        "coordinator": "Prof. Vikram Singh",
+        "phone": "+91 98765 43213"
+      }
+    ]
+  },
+  {
+    "id": "cultural",
+    "name": "Cultural Club",
+    "icon": "🎭",
+    "color": "from-purple-500 to-pink-500",
+    "subClubs": [
+      {
+        "name": "Theatre Society",
+        "president": "Ananya Kapoor",
+        "coordinator": "Dr. Meera Joshi",
+        "phone": "+91 98765 43214"
+      },
+      {
+        "name": "Music Society",
+        "president": "Rohan Malhotra",
+        "coordinator": "Prof. Sandeep Kumar",
+        "phone": "+91 98765 43215"
+      },
+      {
+        "name": "Dance Society",
+        "president": "Ishita Verma",
+        "coordinator": "Dr. Pooja Sharma",
+        "phone": "+91 98765 43216"
+      },
+      {
+        "name": "Art Club",
+        "president": "Aditya Rao",
+        "coordinator": "Prof. Kavita Singh",
+        "phone": "+91 98765 43217"
+      }
+    ]
+  },
+  {
+    "id": "sports",
+    "name": "Sports Club",
+    "icon": "⚽",
+    "color": "from-green-500 to-emerald-500",
+    "subClubs": [
+      {
+        "name": "Cricket",
+        "president": "Virat Sharma",
+        "coordinator": "Coach Ramesh Kumar",
+        "phone": "+91 98765 43218"
+      },
+      {
+        "name": "Football",
+        "president": "Karan Singh",
+        "coordinator": "Coach Dinesh Patel",
+        "phone": "+91 98765 43219"
+      },
+      {
+        "name": "Badminton",
+        "president": "Sania Gupta",
+        "coordinator": "Coach Priya Verma",
+        "phone": "+91 98765 43220"
+      },
+      {
+        "name": "Athletics",
+        "president": "Dhruv Kumar",
+        "coordinator": "Coach Suresh Singh",
+        "phone": "+91 98765 43221"
+      }
+    ]
+  },
+  {
+    "id": "literary",
+    "name": "Literary Club",
+    "icon": "📚",
+    "color": "from-yellow-500 to-orange-500",
+    "subClubs": [
+      {
+        "name": "Debate Society",
+        "president": "Shreya Nair",
+        "coordinator": "Dr. Anil Mehta",
+        "phone": "+91 98765 43222"
+      },
+      {
+        "name": "Poetry Society",
+        "president": "Kabir Joshi",
+        "coordinator": "Prof. Rina Kapoor",
+        "phone": "+91 98765 43223"
+      },
+      {
+        "name": "Writing Society",
+        "president": "Nisha Patel",
+        "coordinator": "Dr. Rajiv Sharma",
+        "phone": "+91 98765 43224"
+      }
+    ]
+  },
+  {
+    "id": "social",
+    "name": "Social Club",
+    "icon": "🤝",
+    "color": "from-red-500 to-rose-500",
+    "subClubs": [
+      {
+        "name": "Pahal",
+        "president": "Anjali Mishra",
+        "coordinator": "Dr. Sunita Rao",
+        "phone": "+91 98765 43225"
+      },
+      {
+        "name": "Anti-Ragging Cell",
+        "president": "Abhishek Verma",
+        "coordinator": "Prof. Mohit Gupta",
+        "phone": "+91 98765 43226"
+      },
+      {
+        "name": "NSS",
+        "president": "Pooja Sharma",
+        "coordinator": "Dr. Ramesh Kumar",
+        "phone": "+91 98765 43227"
+      }
+    ]
+  },
+  {
+    "id": "music-dance",
+    "name": "Music & Dance Club",
+    "icon": "🎵",
+    "color": "from-indigo-500 to-violet-500",
+    "subClubs": [
+      {
+        "name": "Music Crew",
+        "president": "Aryan Singh",
+        "coordinator": "Prof. Madhuri Dixit",
+        "phone": "+91 98765 43228"
+      },
+      {
+        "name": "Dance Crew",
+        "president": "Divya Kapoor",
+        "coordinator": "Dr. Naina Sharma",
+        "phone": "+91 98765 43229"
+      },
+      {
+        "name": "Band",
+        "president": "Rohit Malhotra",
+        "coordinator": "Prof. Ajay Kumar",
+        "phone": "+91 98765 43230"
+      }
+    ]
+  }
+]
