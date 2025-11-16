@@ -1,268 +1,271 @@
-"use client";
+import { useState } from 'react';
+import { useTheme } from '../contexts/ThemeContext';
+import { motion } from 'framer-motion';
+import { Search, MapPin, Calendar, Phone, Plus, X } from 'lucide-react';
 
-import { useState } from "react";
-import ProtectedRoute from "@/components/ProtectedRoute";
-import Navbar from "@/components/Navbar";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Badge } from "@/components/ui/badge";
-import { motion } from "framer-motion";
-import { Plus, Calendar, MapPin, Phone, Mail } from "lucide-react";
+interface LostItem {
+  id: number;
+  name: string;
+  location: string;
+  date: string;
+  contact: string;
+  image: string;
+}
 
-const lostItems = [
-  {
-    id: 1,
-    name: "Blue Water Bottle",
-    description: "Blue stainless steel water bottle",
-    location: "Library - 2nd Floor",
-    date: "2024-01-14",
-    contact: "Campus Reception",
-    phone: "+91-XXX-XXX-XXXX",
-    email: "reception@quantumuniversity.edu",
-    status: "Found"
-  },
-  {
-    id: 2,
-    name: "Scientific Calculator",
-    description: "Casio scientific calculator in black case",
-    location: "Engineering Block - Room 301",
-    date: "2024-01-13",
-    contact: "Campus Reception",
-    phone: "+91-XXX-XXX-XXXX",
-    email: "reception@quantumuniversity.edu",
-    status: "Found"
-  },
-  {
-    id: 3,
-    name: "Red Backpack",
-    description: "Red backpack with laptop compartment",
-    location: "Main Cafeteria",
-    date: "2024-01-12",
-    contact: "Campus Reception",
-    phone: "+91-XXX-XXX-XXXX",
-    email: "reception@quantumuniversity.edu",
-    status: "Found"
-  },
-  {
-    id: 4,
-    name: "Black Umbrella",
-    description: "Black automatic umbrella",
-    location: "Sports Complex",
-    date: "2024-01-11",
-    contact: "Campus Reception",
-    phone: "+91-XXX-XXX-XXXX",
-    email: "reception@quantumuniversity.edu",
-    status: "Found"
-  },
-  {
-    id: 5,
-    name: "Student ID Card",
-    description: "Quantum University student ID card",
-    location: "Admin Building Reception",
-    date: "2024-01-10",
-    contact: "Campus Reception",
-    phone: "+91-XXX-XXX-XXXX",
-    email: "reception@quantumuniversity.edu",
-    status: "Found"
-  }
-];
-
-export default function LostFoundPage() {
-  const [open, setOpen] = useState(false);
-  const [items, setItems] = useState(lostItems);
+const LostFound = () => {
+  const { isDark } = useTheme();
+  const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
-    reporterName: "",
-    reporterContact: "",
-    itemName: "",
-    location: "",
-    date: "",
-    notes: ""
+    reporterName: '',
+    contact: '',
+    itemName: '',
+    location: '',
+    date: '',
+    notes: '',
   });
+  const [items, setItems] = useState<LostItem[]>([
+    {
+      id: 1,
+      name: 'Blue Water Bottle',
+      location: 'Library - 2nd Floor',
+      date: '2025-01-12',
+      contact: 'Campus Reception: +91-9876543210',
+      image: 'https://raw.githubusercontent.com/abhinav2006parihar-cloud/image/refs/heads/main/water%20bottle1.jpeg',
+    },
+    {
+      id: 2,
+      name: 'Scientific Calculator',
+      location: 'Computer Lab - Block A',
+      date: '2025-01-11',
+      contact: 'Campus Reception: +91-9876543210',
+      image: 'https://raw.githubusercontent.com/abhinav2006parihar-cloud/image/refs/heads/main/sc.jpg',
+    },
+    {
+      id: 3,
+      name: 'Red Backpack',
+      location: 'Cafeteria',
+      date: '2025-01-10',
+      contact: 'Campus Reception: +91-9876543210',
+      image: 'https://raw.githubusercontent.com/abhinav2006parihar-cloud/image/refs/heads/main/red%20bag1.jpeg',
+    },
+    {
+      id: 4,
+      name: 'Black Umbrella',
+      location: 'Main Entrance',
+      date: '2025-01-09',
+      contact: 'Campus Reception: +91-9876543210',
+      image: 'https://raw.githubusercontent.com/abhinav2006parihar-cloud/image/refs/heads/main/black%20umbrella.jpeg',
+    },
+    {
+      id: 5,
+      name: 'Student ID Card',
+      location: 'Sports Complex',
+      date: '2025-01-08',
+      contact: 'Campus Reception: +91-9876543210',
+      image: 'https://raw.githubusercontent.com/abhinav2006parihar-cloud/image/refs/heads/main/id%20card.jpeg',
+    },
+  ]);
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    const newItem = {
+    const newItem: LostItem = {
       id: items.length + 1,
       name: formData.itemName,
-      description: formData.notes,
       location: formData.location,
       date: formData.date,
-      contact: formData.reporterName,
-      phone: formData.reporterContact,
-      email: "reception@quantumuniversity.edu",
-      status: "Found"
+      contact: formData.contact,
+      image: 'https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg',
     };
-    
     setItems([newItem, ...items]);
-    setOpen(false);
-    alert("Found item reported successfully! Thank you for helping the community.");
-    
+    setSuccessMessage('Item reported successfully!');
     setFormData({
-      reporterName: "",
-      reporterContact: "",
-      itemName: "",
-      location: "",
-      date: "",
-      notes: ""
+      reporterName: '',
+      contact: '',
+      itemName: '',
+      location: '',
+      date: '',
+      notes: '',
     });
+    setTimeout(() => {
+      setShowModal(false);
+      setSuccessMessage('');
+    }, 2000);
   };
 
   return (
-    <ProtectedRoute>
-      <div className="min-h-screen bg-gradient-to-b from-[#001F3F] to-black">
-        <Navbar />
-        <main className="container mx-auto px-4 py-8">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
-          >
-            <div>
-              <h1 className="text-4xl font-bold mb-2 text-pink-500 drop-shadow-[0_0_8px_#ff4d94]">
-                Lost & Found
-              </h1>
-              <p className="text-gray-300">
-                Browse found items or report something you've found
-              </p>
-            </div>
-            <Dialog open={open} onOpenChange={setOpen}>
-              <DialogTrigger asChild>
-                <Button className="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700">
-                  <Plus className="mr-2 h-4 w-4" />
-                  Report a Found Item
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-md">
-                <DialogHeader>
-                  <DialogTitle>Report Found Item</DialogTitle>
-                  <DialogDescription>
-                    Help us reunite lost items with their owners
-                  </DialogDescription>
-                </DialogHeader>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="reporterName">Reporter Name</Label>
-                    <Input
-                      id="reporterName"
-                      placeholder="Your name"
-                      value={formData.reporterName}
-                      onChange={(e) => setFormData({ ...formData, reporterName: e.target.value })}
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="reporterContact">Contact</Label>
-                    <Input
-                      id="reporterContact"
-                      placeholder="Phone or email"
-                      value={formData.reporterContact}
-                      onChange={(e) => setFormData({ ...formData, reporterContact: e.target.value })}
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="itemName">Item Name</Label>
-                    <Input
-                      id="itemName"
-                      placeholder="e.g., Blue Water Bottle"
-                      value={formData.itemName}
-                      onChange={(e) => setFormData({ ...formData, itemName: e.target.value })}
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="location">Location</Label>
-                    <Input
-                      id="location"
-                      placeholder="Where you found it"
-                      value={formData.location}
-                      onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="date">Date</Label>
-                    <Input
-                      id="date"
-                      type="date"
-                      value={formData.date}
-                      onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                      required
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="notes">Notes</Label>
-                    <Textarea
-                      id="notes"
-                      placeholder="Additional details about the item..."
-                      value={formData.notes}
-                      onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                      rows={3}
-                    />
-                  </div>
-                  <Button type="submit" className="w-full">
-                    Submit Report
-                  </Button>
-                </form>
-              </DialogContent>
-            </Dialog>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {items.map((item, index) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Card className="overflow-hidden hover:shadow-lg hover:shadow-pink-500/20 transition-all duration-300 hover:scale-105 border-2 hover:border-pink-500">
-                  <CardHeader>
-                    <div className="flex items-center justify-between mb-2">
-                      <CardTitle className="text-xl">{item.name}</CardTitle>
-                      <Badge className="bg-green-600 hover:bg-green-700">
-                        {item.status}
-                      </Badge>
-                    </div>
-                    <CardDescription className="text-base">{item.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-3 text-sm">
-                      <div className="flex items-start text-muted-foreground">
-                        <MapPin className="mr-2 h-4 w-4 flex-shrink-0 mt-0.5" />
-                        <span>{item.location}</span>
-                      </div>
-                      <div className="flex items-center text-muted-foreground">
-                        <Calendar className="mr-2 h-4 w-4 flex-shrink-0" />
-                        <span>{item.date}</span>
-                      </div>
-                      <div className="pt-2 border-t border-border">
-                        <p className="font-semibold mb-2 text-foreground">Contact Information:</p>
-                        <div className="space-y-1">
-                          <p className="text-muted-foreground">{item.contact}</p>
-                          <div className="flex items-center text-muted-foreground">
-                            <Phone className="mr-2 h-3 w-3" />
-                            <span className="text-xs">{item.phone}</span>
-                          </div>
-                          <div className="flex items-center text-muted-foreground">
-                            <Mail className="mr-2 h-3 w-3" />
-                            <span className="text-xs">{item.email}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
+    <div className="min-h-screen bg-gradient-to-b from-[#001F3F] to-black pt-20 pb-8 px-4">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-12"
+        >
+          <div className="flex items-center justify-center space-x-3 mb-4">
+            <Search className="text-pink-500" size={36} />
+            <h1 className="text-pink-500 drop-shadow-[0_0_8px_#ff4d94] font-extrabold text-4xl">Lost & Found</h1>
           </div>
-        </main>
+          <p className={${isDark ? 'text-gray-300' : 'text-gray-200'} text-lg mb-6}>Help reunite lost items with their owners</p>
+          <button
+            onClick={() => setShowModal(true)}
+            className="px-6 py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold hover:scale-105 transition-transform shadow-lg flex items-center space-x-2 mx-auto"
+          >
+            <Plus size={20} />
+            <span>Report a Found Item</span>
+          </button>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {items.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.1 }}
+              className={${isDark ? 'bg-gray-900' : 'bg-white'} rounded-xl shadow-2xl overflow-hidden hover:scale-105 transition-transform}
+            >
+              <div className="h-48 overflow-hidden">
+                <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+              </div>
+              <div className="p-6">
+                <h3 className={${isDark ? 'text-white' : 'text-gray-900'} text-xl font-bold mb-4}>{item.name}</h3>
+                <div className="space-y-2">
+                  <div className="flex items-start space-x-2">
+                    <MapPin className={${isDark ? 'text-pink-500' : 'text-pink-600'} flex-shrink-0 mt-1} size={18} />
+                    <span className={${isDark ? 'text-gray-300' : 'text-gray-700'} text-sm}>{item.location}</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Calendar className={${isDark ? 'text-pink-500' : 'text-pink-600'}} size={18} />
+                    <span className={${isDark ? 'text-gray-300' : 'text-gray-700'} text-sm}>{item.date}</span>
+                  </div>
+                  <div className="flex items-start space-x-2">
+                    <Phone className={${isDark ? 'text-pink-500' : 'text-pink-600'} flex-shrink-0 mt-1} size={18} />
+                    <span className={${isDark ? 'text-gray-300' : 'text-gray-700'} text-sm}>{item.contact}</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {showModal && (
+          <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className={${isDark ? 'bg-gray-900' : 'bg-white'} rounded-xl shadow-2xl p-8 max-w-md w-full max-h-[90vh] overflow-y-auto}
+            >
+              <div className="flex items-center justify-between mb-6">
+                <h2 className={${isDark ? 'text-white' : 'text-gray-900'} text-2xl font-bold}>Report Found Item</h2>
+                <button
+                  onClick={() => setShowModal(false)}
+                  className={${isDark ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}}
+                >
+                  <X size={24} />
+                </button>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label className={block text-sm font-medium mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}}>
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.reporterName}
+                    onChange={(e) => setFormData({ ...formData, reporterName: e.target.value })}
+                    required
+                    className={w-full px-4 py-2 rounded-lg ${isDark ? 'bg-gray-800 text-white border-gray-700' : 'bg-gray-50 text-gray-900 border-gray-300'} border focus:ring-2 focus:ring-pink-500}
+                  />
+                </div>
+
+                <div>
+                  <label className={block text-sm font-medium mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}}>
+                    Your Contact
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.contact}
+                    onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
+                    required
+                    className={w-full px-4 py-2 rounded-lg ${isDark ? 'bg-gray-800 text-white border-gray-700' : 'bg-gray-50 text-gray-900 border-gray-300'} border focus:ring-2 focus:ring-pink-500}
+                  />
+                </div>
+
+                <div>
+                  <label className={block text-sm font-medium mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}}>
+                    Item Name
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.itemName}
+                    onChange={(e) => setFormData({ ...formData, itemName: e.target.value })}
+                    required
+                    className={w-full px-4 py-2 rounded-lg ${isDark ? 'bg-gray-800 text-white border-gray-700' : 'bg-gray-50 text-gray-900 border-gray-300'} border focus:ring-2 focus:ring-pink-500}
+                  />
+                </div>
+
+                <div>
+                  <label className={block text-sm font-medium mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}}>
+                    Location Found
+                  </label>
+                  <input
+                    type="text"
+                    value={formData.location}
+                    onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                    required
+                    className={w-full px-4 py-2 rounded-lg ${isDark ? 'bg-gray-800 text-white border-gray-700' : 'bg-gray-50 text-gray-900 border-gray-300'} border focus:ring-2 focus:ring-pink-500}
+                  />
+                </div>
+
+                <div>
+                  <label className={block text-sm font-medium mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}}>
+                    Date
+                  </label>
+                  <input
+                    type="date"
+                    value={formData.date}
+                    onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                    required
+                    className={w-full px-4 py-2 rounded-lg ${isDark ? 'bg-gray-800 text-white border-gray-700' : 'bg-gray-50 text-gray-900 border-gray-300'} border focus:ring-2 focus:ring-pink-500}
+                  />
+                </div>
+
+                <div>
+                  <label className={block text-sm font-medium mb-2 ${isDark ? 'text-gray-300' : 'text-gray-700'}}>
+                    Notes
+                  </label>
+                  <textarea
+                    value={formData.notes}
+                    onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                    rows={3}
+                    className={w-full px-4 py-2 rounded-lg ${isDark ? 'bg-gray-800 text-white border-gray-700' : 'bg-gray-50 text-gray-900 border-gray-300'} border focus:ring-2 focus:ring-pink-500}
+                  />
+                </div>
+
+                {successMessage && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="bg-green-500/20 border border-green-500 text-green-500 px-4 py-3 rounded-lg text-sm"
+                  >
+                    {successMessage}
+                  </motion.div>
+                )}
+
+                <button
+                  type="submit"
+                  className="w-full py-3 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold hover:scale-105 transition-transform"
+                >
+                  Submit Report
+                </button>
+              </form>
+            </motion.div>
+          </div>
+        )}
       </div>
-    </ProtectedRoute>
+    </div>
   );
-}
+};
+
+export default LostFound;
