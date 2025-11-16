@@ -12,101 +12,110 @@ const certifications = [
   {
     id: 1,
     title: "Full Stack Web Development",
-    provider: "Quantum University",
+    provider: "crio",
     duration: "12 weeks",
     level: "Intermediate",
     enrolled: 245,
     description: "Master modern web development with React, Node.js, and MongoDB",
     skills: ["React", "Node.js", "MongoDB", "REST APIs"],
-    color: "from-blue-500 to-blue-600"
+    color: "from-blue-500 to-blue-600",
+    link: "https://www.crio.do/programs/software-development-fellowship-program/?utm_source=google-ads-search&utm_campaign=SD_Course&campaignid=23022218858&utm_medium=Search_SD_Phrase_Sep_25&utm_content=Ad1&utm_term=software%20development%20certification%20courses&utm_network=g&matchtype=p&gad_source=1&gad_campaignid=23022218858&gbraid=0AAAAAClbo8ska_4krrkfD99D8qwprE0CF&gclid=Cj0KCQiA5uDIBhDAARIsAOxj0CFwmHagGK7VmjaXtfxHklLu89dAw_nIAkzRvy7MgRYQCaDQVrJfNa8aAuxzEALw_wcB"
   },
   {
     id: 2,
     title: "Data Science & Machine Learning",
-    provider: "Quantum University",
+    provider: "Scaler",
     duration: "16 weeks",
     level: "Advanced",
     enrolled: 189,
     description: "Learn data analysis, ML algorithms, and AI fundamentals",
     skills: ["Python", "TensorFlow", "Pandas", "Scikit-learn"],
-    color: "from-green-500 to-green-600"
+    color: "from-green-500 to-green-600",
+    link: "https://www.scaler.com/event/learn-data-science-machine-learning/?utm_source=ads&utm_medium=googlesearch&utm_campaign=perf_scaler-dsml_requestcallback_ads_googlesearch_dsa-new_key-metros_25-45&utm_content=dsa-data-science-new&utm_term=&param1=693360064288&param2=c&param3=&gad_source=1&gad_campaignid=21088132974&gbraid=0AAAAADQ037xCZi9M-LgE-Wd6-KEdewXOS&gclid=Cj0KCQiA5uDIBhDAARIsAOxj0CH0gkab-vMfF9AHc1eBQWdIOtmLIxZ0XFdS03rfcCm8BMCnrDl5VAcaAti6EALw_wcB"
   },
   {
     id: 3,
     title: "Cloud Computing with AWS",
-    provider: "Quantum University",
+    provider: "Intellipaat",
     duration: "8 weeks",
     level: "Intermediate",
     enrolled: 312,
     description: "Master cloud architecture and AWS services",
     skills: ["AWS", "EC2", "S3", "Lambda"],
-    color: "from-orange-500 to-orange-600"
+    color: "from-orange-500 to-orange-600",
+    link: "https://intellipaat.com/course-cat/cloud-computing-courses/?US=&utm_source=google&utm_medium=display&utm_campaign=p_performance-max_generic_in_secondary_new_june_2024&gad_source=1&gad_campaignid=21363892982&gbraid=0AAAAADqDZ6OkwzGXU9AgNL3yGMLqprEv_&gclid=Cj0KCQiA5uDIBhDAARIsAOxj0CHlQV18Tsq-VJLyj_Meq01ajdc8WE-RSyiVg8Y74pJA8j7UnoeiO-MaAj6xEALw_wcB"
   },
   {
     id: 4,
     title: "Cybersecurity Fundamentals",
-    provider: "Quantum University",
+    provider: "ISC",
     duration: "10 weeks",
     level: "Beginner",
     enrolled: 276,
     description: "Learn security principles, ethical hacking, and risk management",
     skills: ["Network Security", "Penetration Testing", "Cryptography"],
-    color: "from-red-500 to-red-600"
+    color: "from-red-500 to-red-600",
+    link: "https://www.isc2.org/landing/1mcc?utm_source=google&utm_medium=cpc&utm_campaign=GBL-B2C-1MCC&utm_term=search&utm_content=GBL-B2C-1MCC&gad_source=1&gad_campaignid=22034116007&gbraid=0AAAAAD-S_-NIWLbdE1msquPJF55ab5BY3&gclid=Cj0KCQiA5uDIBhDAARIsAOxj0CHVFGVcOwjBQqcP9tydGuKKh_QqDeIMwi_r9jrksC0pSfdskMsCbzsaAgBlEALw_wcB"
   },
   {
     id: 5,
     title: "Mobile App Development",
-    provider: "Quantum University",
+    provider: "IBM",
     duration: "14 weeks",
     level: "Intermediate",
     enrolled: 198,
     description: "Build native mobile apps for iOS and Android",
     skills: ["React Native", "Flutter", "Firebase", "API Integration"],
-    color: "from-purple-500 to-purple-600"
+    color: "from-purple-500 to-purple-600",
+    link: "https://www.ibm.com/new/training/announcing-the-ios-and-android-mobile-app-developer-professional-certificate-from-ibm"
   },
   {
     id: 6,
     title: "Blockchain Technology",
-    provider: "Quantum University",
+    provider: "AI CERTS Team",
     duration: "10 weeks",
     level: "Advanced",
     enrolled: 143,
     description: "Understanding blockchain, smart contracts, and DApps",
     skills: ["Ethereum", "Solidity", "Web3.js", "Smart Contracts"],
-    color: "from-indigo-500 to-indigo-600"
+    color: "from-indigo-500 to-indigo-600",
+    link: "https://www.coursera.org/specializations/from-blocks-to-build-blockchain-dev-essentials?action=enroll"
   },
   {
     id: 7,
-    title: "UI/UX Design Mastery",
-    provider: "Quantum University",
+    title: "UX Design Mastery",
+    provider: "Google",
     duration: "8 weeks",
     level: "Beginner",
     enrolled: 321,
     description: "Learn design thinking, prototyping, and user research",
     skills: ["Figma", "Adobe XD", "User Research", "Prototyping"],
-    color: "from-pink-500 to-pink-600"
+    color: "from-pink-500 to-pink-600",
+    link: "https://www.coursera.org/professional-certificates/google-ux-design"
   },
   {
     id: 8,
     title: "DevOps Engineering",
-    provider: "Quantum University",
+    provider: "IBM",
     duration: "12 weeks",
     level: "Advanced",
     enrolled: 167,
     description: "Master CI/CD, containerization, and infrastructure automation",
     skills: ["Docker", "Kubernetes", "Jenkins", "Terraform"],
-    color: "from-teal-500 to-teal-600"
+    color: "from-teal-500 to-teal-600",
+    link: "https://www.coursera.org/professional-certificates/devops-and-software-engineering"
   },
   {
     id: 9,
     title: "Digital Marketing",
-    provider: "Quantum University",
+    provider: "Career 247",
     duration: "6 weeks",
     level: "Beginner",
     enrolled: 289,
     description: "Learn SEO, social media marketing, and analytics",
     skills: ["SEO", "Google Analytics", "Content Marketing", "Social Media"],
-    color: "from-yellow-500 to-yellow-600"
+    color: "from-yellow-500 to-yellow-600",
+    link: "https://career247.com/job-assisted-programs/digital-marketing?utm_source=Ads+Google+C247&utm_medium=Search+Ads&utm_campaign=DM+Ads&gad_source=1&gad_campaignid=22946267971&gbraid=0AAAAArEX7v_Tz928vkaHxhxQ4kUSy-O5t&gclid=Cj0KCQiA5uDIBhDAARIsAOxj0CG3v-3RaCRdm963VVfjV18pWofYrS0nUZi1K_18zTIYY4IeEd8VtrQaAnlwEALw_wcB"
   }
 ];
 
@@ -146,7 +155,7 @@ export default function CertificationsPage() {
                 <Card className="h-full flex flex-col hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <div className="flex items-start justify-between mb-2">
-                      <div className={`p-3 rounded-lg bg-gradient-to-br ${cert.color}`}>
+                      <div className={p-3 rounded-lg bg-gradient-to-br ${cert.color}}>
                         <Award className="h-6 w-6 text-white" />
                       </div>
                       <Badge className={levelColors[cert.level as keyof typeof levelColors]}>
@@ -187,13 +196,17 @@ export default function CertificationsPage() {
                     </div>
 
                     <div className="mt-auto space-y-2">
-                      <Button className="w-full">
-                        Enroll Now
-                      </Button>
-                      <Button variant="outline" className="w-full">
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        View Details
-                      </Button>
+                      <a href={cert.link} target="_blank" rel="noopener noreferrer">
+                        <Button className="w-full mb-2">
+                          Enroll Now
+                        </Button>
+                      </a>
+                      <a href={cert.link} target="_blank" rel="noopener noreferrer">
+                        <Button variant="outline" className="w-full">
+                          <ExternalLink className="mr-2 h-4 w-4" />
+                          View Details
+                        </Button>
+                      </a>
                     </div>
                   </CardContent>
                 </Card>
